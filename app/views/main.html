@@ -1,38 +1,39 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div class="detail-block form-horizontal">
+  <p>Welcome to the Angular Store</p>
+  <p>Please select the products you want and add them to your shopping cart</p>
+  <p>When you are done, click the shopping cart icon to review your order and check out.</p>
+  <div class="form-group">
+    <label for="search" class="col-sm-1 control-label">Search</label>
+    <div class="col-sm-5">
+      <input type="email" class="form-control" id="search" placeholder="Search any fruit from the list below">
+    </div>
+  </div>
 
+</div>
 <!-- Store Page Table -->
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead>
     <tr>
-      <th colspan="4">#3 items $28.00</th>
+      <td colspan="4"><span class="glyphicon glyphicon-shopping-cart"></span> <strong>3</strong> items
+        <strong>$28.00</strong></td>
     </tr>
     </thead>
+    <tfoot>
+    <tr>
+      <td colspan="4"><span class="glyphicon glyphicon-shopping-cart"></span> <strong>3</strong> items
+        <strong>$28.00</strong></td>
+    </tr>
+    </tfoot>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
+    <tr ng-repeat="fruit in main.fruits">
+      <th scope="row"><img ng-src="{{fruit.image}}" alt="{{fruit.name}}"/></th>
+      <td>
+        <p><a ng-href="">{{fruit.name}}</a></p>
+        <p ng-bind="fruit.desc"></p>
+      </td>
+      <td ng-bind="fruit.price|currency"></td>
+      <td><a ng-href="">add to cart</a></td>
     </tr>
     </tbody>
   </table>

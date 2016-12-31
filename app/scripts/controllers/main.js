@@ -8,10 +8,7 @@
  * Controller of the xebiaApp
  */
 angular.module('xebiaApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['fruits', function (fruits) {
+    var self = this;
+    self.fruits = fruits;
+  }]);
