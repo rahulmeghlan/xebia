@@ -1,0 +1,19 @@
+
+.product-detail {
+  table {
+    tr {
+      td {
+        &:nth-child(1), &:nth-child(2) {
+          width: 25%;
+        }
+        &:nth-child(3) {
+          width: 50%;
+        }
+      }
+    }
+  }
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
