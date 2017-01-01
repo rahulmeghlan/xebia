@@ -41,6 +41,11 @@ angular.module('xebiaApp')
       self.save();
     };
 
+    self.clearCart = function () {
+      self.cart = {};
+      self.save();
+    };
+
     self.save = function () {
       getTotalPrice();
       window.localStorage.cart = JSON.stringify(self.cart);
