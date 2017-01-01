@@ -17,6 +17,9 @@
         &:nth-child(3) {
           width: 50%;
         }
+        &:nth-child(2){
+          text-align: center;
+        }
       }
 
     }
@@ -40,6 +43,10 @@
         text-transform: capitalize;
       }
     }
+  }
+  .highlight{
+    font-size: 22px;
+    font-weight: bold;
   }
 }
 

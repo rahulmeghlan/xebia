@@ -23,6 +23,7 @@
             <a ng-href="/cart">
               <span class="glyphicon glyphicon-shopping-cart"></span> <strong>{{product.totalCartItems}}</strong> items
               <strong>{{product.totalCartPrice|currency}}</strong>
+              <p ng-if="product.isInCart">this item is in cart</p>
             </a>
           </th>
         </tr>
@@ -31,7 +32,7 @@
         <tr ng-repeat="(key, val) in product.fruit.properties">
           <th scope="row" ng-bind="key"></th>
           <td>
-            <span ng-if="val.rating > 4" ng-bind="val.rating"></span>
+            <span ng-if="val.rating > 4" ng-bind="val.rating" class="highlight"></span>
             <span ng-if="val.rating < 4" class="rating{{val.rating}}">{{val.rating}}</span>
           </td>
           <td ng-bind="val.desc"></td>
