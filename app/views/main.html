@@ -15,14 +15,22 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-      <td colspan="4"><span class="glyphicon glyphicon-shopping-cart"></span> <strong>3</strong> items
-        <strong>$28.00</strong></td>
+      <td colspan="4">
+        <a ng-href="/cart">
+          <span class="glyphicon glyphicon-shopping-cart"></span> <strong>{{main.totalCartItems}}</strong> items
+          <strong>{{main.totalCartPrice|currency}}</strong>
+        </a>
+      </td>
     </tr>
     </thead>
     <tfoot>
     <tr>
-      <td colspan="4"><span class="glyphicon glyphicon-shopping-cart"></span> <strong>3</strong> items
-        <strong>$28.00</strong></td>
+      <td colspan="4">
+        <a ng-href="/cart">
+          <span class="glyphicon glyphicon-shopping-cart"></span> <strong>3</strong> items
+          <strong>$28.00</strong>
+        </a>
+      </td>
     </tr>
     </tfoot>
     <tbody>
@@ -33,7 +41,7 @@
         <p ng-bind="val.description"></p>
       </td>
       <td ng-bind="val.price|currency"></td>
-      <td><a ng-href="">add to cart</a></td>
+      <td ng-click="main.addToCart(key, val)">add to cart</td>
     </tr>
     </tbody>
   </table>
