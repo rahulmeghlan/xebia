@@ -12,7 +12,10 @@ angular
   .module('xebiaApp', [
     'ngRoute'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode({
+      enabled: true
+    }).hashPrefix('!');
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -24,10 +27,15 @@ angular
         controller: 'CartCtrl',
         controllerAs: 'cart'
       })
-      .when('/products', {
+      .when('/products/:name', {
         templateUrl: 'views/products.html',
         controller: 'ProductsCtrl',
-        controllerAs: 'products'
+        controllerAs: 'products',
+        resolve: {
+          fruit: ['storeService', '$route', function (storeService, $route) {
+            return storeService.getDetails($route.current.params.name);
+          }]
+        }
       })
       .otherwise({
         redirectTo: '/'

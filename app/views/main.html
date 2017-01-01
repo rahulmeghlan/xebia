@@ -29,7 +29,7 @@
     <tr ng-repeat="fruit in main.fruits">
       <th scope="row"><img ng-src="{{fruit.image}}" alt="{{fruit.name}}"/></th>
       <td>
-        <p><a ng-href="">{{fruit.name}}</a></p>
+        <p><a ng-href="products/{{fruit.name}}">{{fruit.name}}</a></p>
         <p ng-bind="fruit.desc"></p>
       </td>
       <td ng-bind="fruit.price|currency"></td>
