@@ -1,35 +1,38 @@
 <!-- product-detail -->
-<div class="row product-detail">
-  <div class="table-responsive col-md-8">
-    <table class="table table-bordered">
-      <thead>
-      <tr>
-        <th colspan="4">#3 items $28.00</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="product-detail">
+  <div class="detail-block">
+    <img ng-src="{{product.fruit.img}}"/>
+    <p><strong>{{product.fruitName}}: </strong>{{product.fruit.description}}</p>
 
-  <div class="col-md-4">
-    <button type="button" class="btn btn-success btn-lg">add to cart</button>
-    <button type="button" class="btn btn-danger btn-lg">remove from cart</button>
-    <button type="button" class="btn btn-default btn-lg">back to store</button>
+  </div>
+  <div class="row">
+    <div class="table-responsive col-md-8">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th colspan="4">#3 items $28.00</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="(key, val) in product.fruit.properties">
+          <th scope="row" ng-bind="key"></th>
+          <td>
+            <span ng-if="val.rating > 4" ng-bind="val.rating"></span>
+            <span ng-if="val.rating < 4" class="rating{{val.rating}}">{{val.rating}}</span>
+          </td>
+          <td ng-bind="val.desc"></td>
+        </tr>
+        <tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <button type="button" class="btn btn-success btn-lg">add to cart</button>
+      <button type="button" class="btn btn-danger btn-lg">remove from cart</button>
+      <a ng-href="/">
+        <button type="button" class="btn btn-default btn-lg">back to store</button>
+      </a>
+    </div>
   </div>
 </div>

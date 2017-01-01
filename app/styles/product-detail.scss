@@ -16,4 +16,17 @@
     width: 100%;
     margin-bottom: 10px;
   }
+  .detail-block {
+    display: flex;
+    align-items: center;
+    img {
+      width: 50px;
+      margin-right: 20px;
+    }
+    p:last-child {
+      margin: 0;
+    }
+  }
 }
+
+

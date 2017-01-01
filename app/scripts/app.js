@@ -30,7 +30,7 @@ angular
       .when('/products/:name', {
         templateUrl: 'views/products.html',
         controller: 'ProductsCtrl',
-        controllerAs: 'products',
+        controllerAs: 'product',
         resolve: {
           fruit: ['storeService', '$route', function (storeService, $route) {
             return storeService.getDetails($route.current.params.name);
