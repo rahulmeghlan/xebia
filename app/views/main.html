@@ -26,13 +26,13 @@
     </tr>
     </tfoot>
     <tbody>
-    <tr ng-repeat="fruit in main.fruits">
-      <th scope="row"><img ng-src="{{fruit.image}}" alt="{{fruit.name}}"/></th>
+    <tr ng-repeat="(key, val) in main.fruits">
+      <th scope="row"><img ng-src="{{val.img}}" alt="{{key}}"/></th>
       <td>
-        <p><a ng-href="products/{{fruit.name}}">{{fruit.name}}</a></p>
-        <p ng-bind="fruit.desc"></p>
+        <p><a ng-href="products/{{key}}">{{key}}</a></p>
+        <p ng-bind="val.description"></p>
       </td>
-      <td ng-bind="fruit.price|currency"></td>
+      <td ng-bind="val.price|currency"></td>
       <td><a ng-href="">add to cart</a></td>
     </tr>
     </tbody>

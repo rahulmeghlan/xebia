@@ -8,8 +8,8 @@
  * Controller of the xebiaApp
  */
 angular.module('xebiaApp')
-  .controller('ProductsCtrl', ['fruit', 'fruitDetail', function (fruit, fruitDetail) {
+  .controller('ProductsCtrl', ['fruit', function (fruit) {
     var self = this;
-    self.fruitName = fruit;
-    self.fruit = fruitDetail[fruit.toLowerCase()];
+    self.fruitName = fruit.name;
+    self.fruit = fruit.detail;
   }]);

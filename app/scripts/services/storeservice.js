@@ -8,20 +8,17 @@
  * Service in the xebiaApp.
  */
 angular.module('xebiaApp')
-  .service('storeService', ['fruits', '$q', function (fruits, $q) {
+  .service('storeService', ['fruitDetail', '$q', function (fruitDetail, $q) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var self = this,
       fruit = {};
 
     self.getDetails = function (fruitName) {
       var defer = $q.defer();
-      angular.forEach(fruits, function (val, key) {
-        if (val.name === fruitName) {
-          fruit = val.name;
-        }
-      });
+      fruit = fruitDetail[fruitName];
+
       if (Object.keys(fruit).length) {
-        defer.resolve(fruit);
+        defer.resolve({name: fruitName, detail: fruit});
       } else {
         defer.reject();
       }

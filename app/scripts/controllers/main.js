@@ -8,7 +8,7 @@
  * Controller of the xebiaApp
  */
 angular.module('xebiaApp')
-  .controller('MainCtrl', ['fruits', function (fruits) {
+  .controller('MainCtrl', ['fruitDetail', function (fruitDetail) {
     var self = this;
-    self.fruits = fruits;
+    self.fruits = fruitDetail;
   }]);
