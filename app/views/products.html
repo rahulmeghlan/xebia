@@ -5,49 +5,51 @@
     <p><strong>{{product.fruitName}}: </strong>{{product.fruit.description}}</p>
 
   </div>
-  <div class="row">
-    <div class="table-responsive col-md-8">
-      <table class="table table-bordered">
-        <thead>
-        <tr>
-          <th colspan="4"><a ng-href="/cart">
+  <div class="table-responsive col-md-8">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th colspan="4"><a ng-href="/cart">
+          <span class="glyphicon glyphicon-shopping-cart"></span> <strong>{{product.totalCartItems}}</strong> items
+          <strong>{{product.totalCartPrice|currency}}</strong>
+          <p ng-if="product.isInCart">this item is in cart</p>
+        </a></th>
+      </tr>
+      </thead>
+      <tfoot>
+      <tr>
+        <th colspan="4">
+          <a ng-href="/cart">
             <span class="glyphicon glyphicon-shopping-cart"></span> <strong>{{product.totalCartItems}}</strong> items
             <strong>{{product.totalCartPrice|currency}}</strong>
             <p ng-if="product.isInCart">this item is in cart</p>
-          </a></th>
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-          <th colspan="4">
-            <a ng-href="/cart">
-              <span class="glyphicon glyphicon-shopping-cart"></span> <strong>{{product.totalCartItems}}</strong> items
-              <strong>{{product.totalCartPrice|currency}}</strong>
-              <p ng-if="product.isInCart">this item is in cart</p>
-            </a>
-          </th>
-        </tr>
-        </tfoot>
-        <tbody>
-        <tr ng-repeat="(key, val) in product.fruit.properties">
-          <th scope="row" ng-bind="key"></th>
-          <td>
-            <span ng-if="val.rating > 4" ng-bind="val.rating" class="highlight"></span>
-            <span ng-if="val.rating < 4" class="rating{{val.rating}}">{{val.rating}}</span>
-          </td>
-          <td ng-bind="val.desc"></td>
-        </tr>
-        <tr>
-        </tbody>
-      </table>
-    </div>
+          </a>
+        </th>
+      </tr>
+      </tfoot>
+      <tbody>
+      <tr ng-repeat="(key, val) in product.fruit.properties">
+        <th scope="row" ng-bind="key"></th>
+        <td>
+          <span ng-if="val.rating > 4" ng-bind="val.rating" class="highlight"></span>
+          <span ng-if="val.rating < 4" class="rating{{val.rating}}">{{val.rating}}</span>
+        </td>
+        <td ng-bind="val.desc"></td>
+      </tr>
+      <tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="col-md-4">
-      <button type="button" class="btn btn-success btn-lg" ng-if="!product.isInCart" ng-click="product.addToCart();">add to cart</button>
-      <button type="button" class="btn btn-danger btn-lg" ng-if="product.isInCart"  ng-click="product.removeFromCart();">remove from cart</button>
-      <a ng-href="/">
-        <button type="button" class="btn btn-default btn-lg">back to store</button>
-      </a>
-    </div>
+  <div class="col-md-4">
+    <button type="button" class="btn btn-success btn-lg" ng-if="!product.isInCart" ng-click="product.addToCart();">add
+      to cart
+    </button>
+    <button type="button" class="btn btn-danger btn-lg" ng-if="product.isInCart" ng-click="product.removeFromCart();">
+      remove from cart
+    </button>
+    <a ng-href="/">
+      <button type="button" class="btn btn-default btn-lg">back to store</button>
+    </a>
   </div>
 </div>
