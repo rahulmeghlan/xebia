@@ -1,6 +1,14 @@
 
 .product-detail {
   table {
+    thead, tfoot {
+      background-color: $gray-lighter;
+      tr th {
+        text-align: right;
+        color: $brand-info;
+
+      }
+    }
     tr {
       td {
         &:nth-child(1), &:nth-child(2) {
@@ -10,6 +18,7 @@
           width: 50%;
         }
       }
+
     }
   }
   button {

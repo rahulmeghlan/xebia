@@ -12,7 +12,7 @@ angular.module('xebiaApp')
     var self = this;
 
     self.goBack = function () {
-      $window.history.back()
+      $window.history.back();
     };
 
     function initScopeItems() {
@@ -22,16 +22,16 @@ angular.module('xebiaApp')
       self.incrementQty = cartService.incrementQty;
       self.decrementQty = cartService.decrementQty;
       self.removeItem = cartService.removeItem;
-      self.clearCart = function(){
+      self.clearCart = function () {
         cartService.clearCart();
         self.goBack();
-      }
+      };
     }
 
     function bindEvents() {
       $scope.$watch(function () {
         return cartService.totalPrice;
-      }, function (nVal, oVal) {
+      }, function () {
         self.items = cartService.cart;
         self.totalItems = cartService.totalQty;
         self.totalPrice = cartService.totalPrice;

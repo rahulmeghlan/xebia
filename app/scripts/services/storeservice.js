@@ -23,5 +23,5 @@ angular.module('xebiaApp')
         defer.reject();
       }
       return defer.promise;
-    }
+    };
   }]);

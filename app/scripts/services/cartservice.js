@@ -16,7 +16,7 @@ angular.module('xebiaApp')
 
     self.addToCart = function (key, item) {
       if (self.cart[key]) {
-        ++self.cart[key].qty
+        ++self.cart[key].qty;
       } else {
         self.cart[key] = item;
         self.cart[key].qty = 1;
@@ -54,7 +54,7 @@ angular.module('xebiaApp')
     function getTotalPrice() {
       self.totalPrice = 0;
       self.totalQty = 0;
-      angular.forEach(self.cart, function (val, key) {
+      angular.forEach(self.cart, function (val) {
         self.totalPrice += (val.qty * val.price);
         self.totalQty += val.qty;
       });

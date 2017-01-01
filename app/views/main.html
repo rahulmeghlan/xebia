@@ -5,7 +5,8 @@
   <div class="form-group">
     <label for="search" class="col-sm-1 control-label">Search</label>
     <div class="col-sm-5">
-      <input type="email" class="form-control" id="search" placeholder="Search any fruit from the list below">
+      <input type="text" class="form-control" id="search" placeholder="Search any fruit from the list below"
+             ng-model="main.searchTerm" ng-keyup="main.search($event)"/>
     </div>
   </div>
 
@@ -27,8 +28,8 @@
     <tr>
       <td colspan="4">
         <a ng-href="/cart">
-          <span class="glyphicon glyphicon-shopping-cart"></span> <strong>3</strong> items
-          <strong>$28.00</strong>
+          <span class="glyphicon glyphicon-shopping-cart"></span> <strong>{{main.totalCartItems}}</strong> items
+          <strong>{{main.totalCartPrice|currency}}</strong>
         </a>
       </td>
     </tr>
@@ -41,7 +42,7 @@
         <p ng-bind="val.description"></p>
       </td>
       <td ng-bind="val.price|currency"></td>
-      <td ng-click="main.addToCart(key, val)">add to cart</td>
+      <td ng-click="main.addToCart(key, val)" class="cart-btn">add to cart</td>
     </tr>
     </tbody>
   </table>

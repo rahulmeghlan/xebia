@@ -10,9 +10,23 @@
       <table class="table table-bordered">
         <thead>
         <tr>
-          <th colspan="4">#3 items $28.00</th>
+          <th colspan="4"><a ng-href="/cart">
+            <span class="glyphicon glyphicon-shopping-cart"></span> <strong>{{product.totalCartItems}}</strong> items
+            <strong>{{product.totalCartPrice|currency}}</strong>
+            <p ng-if="product.isInCart">this item is in cart</p>
+          </a></th>
         </tr>
         </thead>
+        <tfoot>
+        <tr>
+          <th colspan="4">
+            <a ng-href="/cart">
+              <span class="glyphicon glyphicon-shopping-cart"></span> <strong>{{product.totalCartItems}}</strong> items
+              <strong>{{product.totalCartPrice|currency}}</strong>
+            </a>
+          </th>
+        </tr>
+        </tfoot>
         <tbody>
         <tr ng-repeat="(key, val) in product.fruit.properties">
           <th scope="row" ng-bind="key"></th>
@@ -28,8 +42,8 @@
     </div>
 
     <div class="col-md-4">
-      <button type="button" class="btn btn-success btn-lg">add to cart</button>
-      <button type="button" class="btn btn-danger btn-lg">remove from cart</button>
+      <button type="button" class="btn btn-success btn-lg" ng-if="!product.isInCart" ng-click="product.addToCart();">add to cart</button>
+      <button type="button" class="btn btn-danger btn-lg" ng-if="product.isInCart"  ng-click="product.removeFromCart();">remove from cart</button>
       <a ng-href="/">
         <button type="button" class="btn btn-default btn-lg">back to store</button>
       </a>

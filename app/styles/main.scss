@@ -75,6 +75,10 @@ table {
       }
     }
     td {
+      vertical-align: middle !important;
+      p:first-child {
+        text-transform: capitalize;
+      }
       &:nth-child(1) {
         width: 10%;
       }
@@ -86,6 +90,13 @@ table {
       }
       &:nth-child(4) {
         width: 20%;
+      }
+      &.cart-btn {
+        color: $brand-primary;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
     }
   }
